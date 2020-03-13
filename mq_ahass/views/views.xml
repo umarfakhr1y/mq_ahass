@@ -1,0 +1,75 @@
+<odoo>
+  <data>
+    
+    <!-- model.name tree view -->
+    <record id="mq_ahass_view_tree" model="ir.ui.view">
+      <field name="name">mq.ahass.tree</field>
+      <field name="model">mq.ahass</field>
+      <field name="arch" type="xml">
+        <tree string="antrian ahass">
+            <field name="name"/>
+            <field name="namacustomer_id"/>
+            <field name="tanggal_masuk"/>
+            <field name="kendaraan"/>
+            <field name="no_polisi"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- ### Membuat Action/Event Object Kursus ### -->
+    <record model="ir.actions.act_window" id="ahass_action">
+      <field name="name">Ahass</field>
+      <field name="res_model">mq.ahass</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+          <p class="oe_view_nocontent_create">Tidak ada Antrian</p>
+      </field>
+  </record>
+
+    <!-- model.name form view -->
+    <record id="mq_ahass_view_form" model="ir.ui.view">
+      <field name="name">mq.ahass.form</field>
+      <field name="model">mq.ahass</field>
+      <field name="arch" type="xml">
+        <form string="mq_ahass form">
+          <sheet>
+            <group>
+              <group string='Owner Information'>
+                <field name="name"/>
+                <field name="namacustomer_id"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- action travel package -->
+
+    <!-- <record model="ir.actions.act_window" id="mq_bengkel_ahass_action">
+    <field name="name">MQ ahass</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">mq.ahass</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+    </record> -->
+
+    <record id="mq_ahass_sequence" model="ir.sequence">
+      <field name="name">Mqahass</field>
+      <field name="code">mq.ahass</field>
+      <field name="prefix">AHASS/%(month)s/%(y)s/</field>
+      <field name="padding">4</field>
+  </record>
+
+    <!--menu item mq ahass-->
+    <menuitem id="mq_menubar" name="Ahass" web_icon="mq_ahass,static/description/ahha.jpeg"/>
+    <menuitem id="mq_mainmenu" name="Antrian" parent="mq_menubar" sequence="1" action="ahass_action"/>  
+    <menuitem id="mq_menuitem" name="Options" parent="mq_menubar"/>  
+    <!-- <menuitem id="mq_ahass_mainmenu" name="Antrian" parent="mq_mainmenu" action="ahass_action"/>  -->
+    <menuitem id="mq_ahass_submenu" name="Customer" parent="mq_menuitem" action="base.action_partner_form"/> -->
+
+
+  </data>
+</odoo>
