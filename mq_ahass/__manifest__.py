@@ -7,7 +7,7 @@
         subtitle on modules listing or apps.openerp.com""",
 
     'description': """
-        Deskripsi bengkel Ahass
+        Deskripsi bengkel mq_Ahass
     """,
 
     'author': "My Company",
